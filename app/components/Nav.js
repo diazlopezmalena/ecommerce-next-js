@@ -1,10 +1,15 @@
 'use client'
 import { useState } from 'react'
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button } from "@nextui-org/react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { inconsolata } from '../utils/fonts';
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 
 const Nav = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const path = usePathname()
 
   const menuItems = [
     "Profile",
@@ -19,48 +24,61 @@ const Nav = () => {
     "Log Out",
   ];
 
+  const menuItems2 = [
+    {
+      label: 'Inicio',
+      href: '/',
+      id: 'inicio'
+    },
+    {
+      label: 'Catálogo',
+      href: '/catalog',
+      id: 'catalog'
+    },
+    {
+      label: 'Carrito',
+      href: '/cart',
+      id: '/cart'
+    }
+  ];
+
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-sky-400'>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className={`bg-primary h-24 ${inconsolata.className} font-semiblod`}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          {/* <AcmeLogo /> */}
-          <p className="font-bold text-inherit">ACME</p>
+          <Link href={'/'}>
+            <Image src={"/logotype.svg"} alt='Retro logotipo' width={100} height={100} />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+        {
+          menuItems2.map((item) => {
+            return (
+              <NavbarItem key={item.label}>
+                <Link color="foreground" href={item.href} className={`${path.includes(item.id) ? 'font-bold' : ''} text-lg`}>
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            )
+          })
+        }
       </NavbarContent>
+
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="#" className='text-lg'>Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+
       </NavbarContent>
+
       <NavbarMenu>
-        {menuItems.map((item, index) => (
+        {menuItems2.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
@@ -70,7 +88,7 @@ const Nav = () => {
               href="#"
               size="lg"
             >
-              {item}
+              {item.label}
             </Link>
           </NavbarMenuItem>
         ))}
