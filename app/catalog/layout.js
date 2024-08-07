@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <main>
+    <main className="max-w-[1366px] px-20">
           <Breadcrumb/>
             {children}
     </main>

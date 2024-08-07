@@ -4,7 +4,7 @@ import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const ProductList = ({ category }) => {
+const ProductList = ({ category, style }) => {
     const router = useRouter()
 
     const items = category === 'Todos'
@@ -16,7 +16,7 @@ const ProductList = ({ category }) => {
     const firstSlug = category === 'Todos' ? 'catalog/' : ''
 
     return (
-        <div className="gap-6 grid grid-cols-2 sm:grid-cols-3  py-[60px]">
+        <div className={`gap-6 grid grid-cols-2 sm:grid-cols-3 ${style}`}>
             {items.map((item, index) => (
                 <Link href={`${firstSlug}${item.category}/${item.id}`} key={index} >
                     <Card shadow="sm" isPressable onPress={() => console.log("item pressed")} className="size-full"> 

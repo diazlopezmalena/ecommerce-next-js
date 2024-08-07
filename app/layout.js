@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-primary">
-      <body className={`${raleway.className} max-w-[1366px] mx-auto min-h-screen text-secondary px-20`}>
+      <body className={`${raleway.className} min-h-screen text-secondary`}>
         <Providers>
           <Nav />
             {children}

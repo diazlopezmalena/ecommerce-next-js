@@ -9,10 +9,36 @@
 }
 
 .max-w-\[1024px\] {
-
   max-width: none !important;
   padding: 0px !important;
 }
+
+/* Para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo de la pista */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* Color del "thumb" */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 3px solid #f1f1f1; /* Bordes para dar efecto de espacio */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1; /* Color del "thumb" al pasar el mouse */
+}
+
+/* Para navegadores que soportan scrollbar-color y scrollbar-width */
+* {
+  scrollbar-color: #c1c1c1 #f1f1f1; /* Color del "thumb" y la pista */
+  scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+}
+
 
 @media (prefers-color-scheme: dark) {
   /* :root {
