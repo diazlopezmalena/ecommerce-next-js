@@ -26,7 +26,7 @@ const Nav = () => {
 
   return (
     <div className='w-full sticky top-0 z-50'>
-      <Navbar onMenuOpenChange={setIsMenuOpen} className={`h-24 ${inconsolata.className} font-semiblod max-w-[1366px] px-20 mx-auto bg-primary`}>
+      <Navbar onMenuOpenChange={setIsMenuOpen} className={`h-24 ${inconsolata.className} font-semiblod max-w-[1366px] px-5 md:px-20 mx-auto bg-primary`}>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}

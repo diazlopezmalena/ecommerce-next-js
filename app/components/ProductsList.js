@@ -27,7 +27,7 @@ const ProductList = ({ category, style }) => {
                                 width="100%"
                                 height="300px"
                                 alt={item.title}
-                                className="w-full object-cover h-[140px]"
+                                className="w-full object-cover md:h-[140px] !h-[150px]"
                                 src={item.img}
                             />
                         </CardBody>
