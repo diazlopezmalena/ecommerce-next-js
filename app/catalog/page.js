@@ -1,6 +1,8 @@
-import ProductList from "../components/ProductsList";
+import ProductList from "../../components/ProductsList";
 
 const Catalog = () => {
+
+
   return (
     <ProductList category='Todos' />
   );

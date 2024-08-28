@@ -1,5 +1,4 @@
-import Breadcrumb from "../components/Breadcrumb";
-
+import Breadcrumb from "../../components/Breadcrumb";
 
 export const metadata = {
   title: "Create Next App",

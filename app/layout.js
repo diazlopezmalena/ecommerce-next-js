@@ -1,7 +1,7 @@
 import "./globals.css";
 import {Providers} from "./providers";
-import Nav from "./components/Nav";
-import { raleway } from "./utils/fonts";
+import Nav from "../components/Nav";
+import { raleway } from "../utils/fonts";
 
 export const metadata = {
   title: "Create Next App",

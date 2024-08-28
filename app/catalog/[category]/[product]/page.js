@@ -2,10 +2,10 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from "@nextui-org/react";
-import { Arrow } from '@/app/assets/Arrow';
+import { Arrow } from '@/assets/Arrow';
 import { products } from '@/data/products';
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import Counter from '@/app/components/Counter';
+import Counter from '@/components/Counter';
 
 const Product = ({ params }) => {
     const router = useRouter()

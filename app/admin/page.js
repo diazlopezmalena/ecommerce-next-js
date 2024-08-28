@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 import {Input} from "@nextui-org/react";
-import { EyeFilledIcon } from "../assets/EyeFilledIcon";
-import { EyeSlashFilledIcon } from "../assets/EyeSlashFilledIcon";
+import { EyeFilledIcon } from "../../assets/EyeFilledIcon";
+import { EyeSlashFilledIcon } from "../../assets/EyeSlashFilledIcon";
 
 const Admin = () => {
     const [ isVisible, setIsVisible ] = useState(false);

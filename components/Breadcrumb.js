@@ -23,17 +23,15 @@ const Breadcrumb = () => {
         arrayOfSlugs.map((slug, index) => {
 
           const url = arrayOfSlugs.slice(0,index)
-          console.log(url);
-          const pepe = url.join('/')
-          console.log(pepe);
+          const joiner = url.join('/')
 
           if (slug === '') {
             return
           }
 
           return (
-            <BreadcrumbItem href={`${pepe}/${slug}`} key={slug} >
-              {slug}
+            <BreadcrumbItem href={`${joiner}/${slug}`} key={slug} >
+              {slug.toUpperCase()}
             </BreadcrumbItem>
           )
         })

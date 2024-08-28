@@ -1,4 +1,4 @@
-import ProductList from "@/app/components/ProductsList"
+import ProductList from "@/components/ProductsList"
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
