@@ -21,14 +21,9 @@ const Nav = () => {
       id: 'catalog',
       subitems: [
         {
-          label: 'Cassettes',
-          href: '/cassettes',
-          id: 'cassettes'
-        },
-        {
-          label: 'Audio',
-          href: '/audio',
-          id: 'audio'
+          label: 'Vynils',
+          href: '/vinyl',
+          id: 'vinyl'
         }
       ]
     },
@@ -74,7 +69,7 @@ const Nav = () => {
               item.subitems
                 ?
                 <Dropdown key={item.id}>
-                  <NavbarItem>
+                  <NavbarItem color="foreground">
                     <DropdownTrigger>
                       <Button
                         disableRipple
@@ -82,6 +77,8 @@ const Nav = () => {
                         endContent={icons.chevron}
                         radius="sm"
                         variant="light"
+                        color="foreground"
+
                       >
                         {item.label}
                       </Button>
