@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/react'
 import React, { useState } from 'react'
 
 const Counter = ({ stock }) => {
-    const [ quantity, setQuantity ] = useState(1)
+    const [ quantity, setQuantity ] = useState([])
 
   return (
     <div>

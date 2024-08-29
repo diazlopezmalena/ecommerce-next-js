@@ -1,10 +1,10 @@
 import { useCartContext } from "./context/CartContext"
 
 const Cart = () => {
-    const { cart } = useCartContext()
+    const { cart } = useCartContext()    
 
   return (
-    <div>Cart: {cart}</div>
+    <div>Cart: {cart.length}</div>
   )
 }
 

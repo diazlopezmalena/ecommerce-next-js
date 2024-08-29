@@ -6,7 +6,7 @@ import React from 'react'
 const NotFound = () => {
   const router = useRouter()
   return (
-    <div>not-foundddd
+    <div>not-found
 
     <Button onClick={()=>router.back()} color="primary" variant="shadow">
       Volver
