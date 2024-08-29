@@ -3,8 +3,9 @@ import Link from "next/link";
 
 const ProductList = async ({ category, style }) => {
     const lastSlug = category ? category.toLowerCase() : ''
+        const url = 'https://ecommerce-next-js-seven-drab.vercel.app/'
 
-    const response = await fetch(`http://localhost:3000/api/products/${lastSlug}`, {
+    const response = await fetch(`${url}api/products/${lastSlug}`, {
         cache: "no-store",
     })
     const items = await response.json()
