@@ -1,7 +1,8 @@
 import "./globals.css";
-import {Providers} from "./providers";
+import { Providers } from "./providers";
 import Nav from "../components/Nav";
 import { raleway } from "../utils/fonts";
+import { CartContextProvider } from "@/components/context/CartContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-primary">
       <body className={`${raleway.className} min-h-screen text-secondary`}>
-        <Providers>
-          <Nav />
+        <CartContextProvider>
+          <Providers>
+            <Nav />
             {children}
           </Providers>
-        </body>
+        </CartContextProvider>
+      </body>
     </html>
   );
 }

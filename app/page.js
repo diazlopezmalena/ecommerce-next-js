@@ -16,7 +16,7 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <ProductList category='Todos' style='py-10' />
+      <ProductList style='py-10' />
     </main>
   );
 }

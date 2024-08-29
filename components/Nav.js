@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { inconsolata } from '../utils/fonts';
 import { ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale } from "../assets/icons";
 import { useRouter } from 'next/navigation';
+import Cart from './Cart';
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,68 +70,64 @@ const Nav = () => {
 
         <NavbarContent className="hidden sm:flex gap-10" justify="center">
           {
-            menuItems2.map((item) => {
-
-              if (item.subitems) {
-                return (
-                  <Dropdown key={item.id}>
-                    <NavbarItem>
-                      <DropdownTrigger>
-                        <Button
-                          disableRipple
-                          className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                          endContent={icons.chevron}
-                          radius="sm"
-                          variant="light"
-                        >
-                          {item.label}
-                        </Button>
-                      </DropdownTrigger>
-                    </NavbarItem>
-                    <DropdownMenu
-                      aria-label="ACME features"
-                      className="w-full"
-                      itemClasses={{
-                        base: "gap-4",
-                      }}
-                      key={item.id}
-                    >
-                      {item.subitems.map(subitem => {
-                        return (
-                          <DropdownItem
-                            startContent={icons.scale}
-                            key={subitem.id}
-                            className='w-full'
-                            onClick={()=>handleSubitemsLinks(item.href + subitem.href)}
-                          >
-                              {subitem.label}
-                          </DropdownItem>
-                        )
-
-                      })}
-                    </DropdownMenu>
-
-                  </Dropdown>
-                )
-              }
-
-              return (
-                <>
-                  <NavbarItem key={item.label}>
-                    <Link color="foreground" href={item.href} className={`${path.includes(item.id) ? 'font-bold' : ''} text-lg`}>
-                      {item.label}
-                    </Link>
+            menuItems2.map((item) =>
+              item.subitems
+                ?
+                <Dropdown key={item.id}>
+                  <NavbarItem>
+                    <DropdownTrigger>
+                      <Button
+                        disableRipple
+                        className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                        endContent={icons.chevron}
+                        radius="sm"
+                        variant="light"
+                      >
+                        {item.label}
+                      </Button>
+                    </DropdownTrigger>
                   </NavbarItem>
-                </>
+                  <DropdownMenu
+                    aria-label="ACME features"
+                    className="w-full"
+                    itemClasses={{
+                      base: "gap-4",
+                    }}
+                    key={item.id}
+                  >
+                    {item.subitems.map(subitem => {
+                      return (
+                        <DropdownItem
+                          startContent={icons.scale}
+                          key={subitem.id}
+                          className='w-full'
+                          onClick={() => handleSubitemsLinks(item.href + subitem.href)}
+                        >
+                          {subitem.label}
+                        </DropdownItem>
+                      )
 
-              )
-            })
+                    })}
+                  </DropdownMenu>
+
+                </Dropdown>
+                :
+                <NavbarItem key={item.label}>
+                  <Link color="foreground" href={item.href} className={`${path.includes(item.id) ? 'font-bold' : ''} text-lg`}>
+                    {item.label}
+                  </Link>
+                </NavbarItem>
+            )
           }
         </NavbarContent >
 
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
             <Link href="/admin" className='text-lg'>Login</Link>
+          </NavbarItem>
+
+          <NavbarItem>
+            <Cart />
           </NavbarItem>
 
         </NavbarContent>
