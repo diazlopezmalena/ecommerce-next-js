@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ProductCard"
+import ProductDetail from "@/components/productDetail"
 
 const Product = async ({ params }) => {
     const url = 'https://ecommerce-next-js-seven-drab.vercel.app/'
@@ -9,7 +9,9 @@ const Product = async ({ params }) => {
     const item = await response.json()
 
     return (
-        <ProductCard itemProduct={item} />
+        <>
+            <ProductDetail product={item} />
+        </>
     )
 }
 

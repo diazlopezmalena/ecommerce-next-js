@@ -7,6 +7,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 const Category = ({ params }) => {
+
   return (
     <div>Category: {params.category}
       <ProductList category={params.category} />

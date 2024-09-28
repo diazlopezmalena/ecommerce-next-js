@@ -19,7 +19,7 @@ export const products = [
   },
   {
     id: "audio",
-    title: "Audio One",
+    name: "Audio One",
     img: "/5.png",
     price: "$100",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

@@ -1,17 +1,14 @@
-'use client'
 import { Button } from '@nextui-org/react'
-import React, { useState } from 'react'
 
-const Counter = ({ stock }) => {
-    const [ quantity, setQuantity ] = useState([])
-
+const Counter = ({ addProduct, quitProduct, quantity }) => {
+  
   return (
-    <div>
-        <Button onClick={()=>setQuantity(quantity-1)}>-</Button>
-        {quantity}
-        <Button onClick={()=>setQuantity(quantity+1)}>+</Button>
+    <div className="flex items-center">
+        <Button onClick={quitProduct}>-</Button>
+        <span className="mx-2">{quantity}</span>
+        <Button onClick={addProduct}>+</Button>
     </div>
   )
 }
 
-export default Counter
+export default Counter;

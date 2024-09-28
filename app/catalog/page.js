@@ -1,9 +1,9 @@
 import ProductList from "../../components/ProductsList";
 
-const Catalog = () => {
-
+const Catalog = () => {  
   return (
     <ProductList />
+        
   );
 }
 

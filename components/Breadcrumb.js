@@ -1,12 +1,19 @@
 'use client'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import { HomeIcon } from '../assets/HomeIcon';
 import { inconsolata } from '../utils/fonts';
 
 const Breadcrumb = () => {
-  const paths = usePathname()
-  const arrayOfSlugs = paths.split('/')
+  const pathname = usePathname();
+  const router = useRouter();
+  const arrayOfSlugs = pathname.split('/');
+
+  const handleBreadcrumbClick = (slug) => {
+    const url = arrayOfSlugs.slice(0, slug + 1).join('/');
+    router.push(url);
+  };
+
   return (
     <Breadcrumbs
       underline="hover"
@@ -16,21 +23,15 @@ const Breadcrumb = () => {
       }}
       className={`py-3 ${inconsolata.className} text-white pl-1`}
     >
-      <BreadcrumbItem href="/catalog">
+      <BreadcrumbItem onClick={() => handleBreadcrumbClick(0)}>
         <HomeIcon fill='white' width='16px' />
       </BreadcrumbItem>
       {
         arrayOfSlugs.map((slug, index) => {
-
-          const url = arrayOfSlugs.slice(0,index)
-          const joiner = url.join('/')
-
-          if (slug === '') {
-            return
-          }
+          if (slug === '') return null; 
 
           return (
-            <BreadcrumbItem href={`${joiner}/${slug}`} key={slug} >
+            <BreadcrumbItem onClick={() => handleBreadcrumbClick(index)} key={slug}>
               {slug.toUpperCase()}
             </BreadcrumbItem>
           )
@@ -40,5 +41,4 @@ const Breadcrumb = () => {
   );
 }
 
-
-export default Breadcrumb
+export default Breadcrumb;
